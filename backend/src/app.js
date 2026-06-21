@@ -28,4 +28,12 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Server Healthy",
+        timestamp: new Date(),
+    });
+});
+
 module.exports = app;
