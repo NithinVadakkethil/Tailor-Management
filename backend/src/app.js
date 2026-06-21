@@ -6,6 +6,8 @@ const customerRoutes = require("./routes/customer.routes");
 const measurementRoutes = require('./routes/measurement.routes');
 const orderRoutes = require('./routes/order.routes');
 const paymentRoutes = require('./routes/payment.routes');
+const helmet = require("helmet");
+const compression = require("compression");
 
 const app = express();
 
@@ -14,6 +16,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use(morgan("dev"));
+
+app.use(helmet());
+app.use(compression());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/customers", customerRoutes);
