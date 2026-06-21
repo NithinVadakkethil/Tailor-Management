@@ -1,0 +1,10 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "js,json",
+    "events": {
+        "restart": "echo '🔄 Server Restarting...'",
+        "start": "echo '🚀 Starting Development Server...'"
+    }
+}
