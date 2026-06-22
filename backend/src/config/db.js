@@ -3,12 +3,24 @@ const chalk = require("chalk");
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        if (mongoose.connection.readyState === 1) {
+            return;
+        }
 
-        console.log(chalk.green("✅ MongoDB Connected"));
+        await mongoose.connect(
+            process.env.MONGO_URI
+        );
+
+        console.log(
+            chalk.green("✅ MongoDB Connected")
+        );
     } catch (error) {
-        console.log(chalk.red("❌ MongoDB Connection Failed"));
-        console.log(chalk.red(error.message));
+        console.log(
+            chalk.red("❌ MongoDB Connection Failed")
+        );
+        console.log(
+            chalk.red(error.message)
+        );
         process.exit(1);
     }
 };
