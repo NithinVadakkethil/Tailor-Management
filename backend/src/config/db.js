@@ -1,3 +1,5 @@
+// src/config/db.js
+
 const mongoose = require("mongoose");
 const chalk = require("chalk");
 
@@ -18,10 +20,12 @@ const connectDB = async () => {
         console.log(
             chalk.red("❌ MongoDB Connection Failed")
         );
+
         console.log(
             chalk.red(error.message)
         );
-        process.exit(1);
+
+        throw error;
     }
 };
 
