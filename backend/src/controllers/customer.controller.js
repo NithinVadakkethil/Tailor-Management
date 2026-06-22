@@ -1,8 +1,6 @@
 const Customer = require("../models/Customer");
 const generateCustomerCode = require("../utils/generateCustomerCode");
 
-console.log(typeof generateCustomerCode);
-
 exports.createCustomer = async (req, res) => {
     try {
         const customerCode =
