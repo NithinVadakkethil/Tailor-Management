@@ -14,7 +14,7 @@ const generateMeasurementCode =
                     },
                 },
                 {
-                    new: true,
+                    returnDocument: "after",
                     upsert: true,
                 }
             );

@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 const connectDB = require("../src/config/db");
 
 beforeAll(async () => {
-    await connectDB();
+    await connectDB({
+        maxPoolSize: 1,
+    });
 });
 
 afterAll(async () => {
-    await mongoose.connection.close();
+    await mongoose.disconnect();
 });

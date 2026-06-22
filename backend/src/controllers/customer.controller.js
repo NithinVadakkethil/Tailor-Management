@@ -128,7 +128,7 @@ exports.updateCustomer =
                 req.body,
 
                 {
-                    new: true
+                    returnDocument: "after"
                 }
             );
 
@@ -150,7 +150,7 @@ exports.deleteCustomer =
                 },
 
                 {
-                    new: true
+                    returnDocument: "after"
                 }
             );
 

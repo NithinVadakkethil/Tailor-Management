@@ -3,14 +3,15 @@
 const mongoose = require("mongoose");
 const chalk = require("chalk");
 
-const connectDB = async () => {
+const connectDB = async (options = {}) => {
     try {
         if (mongoose.connection.readyState === 1) {
             return;
         }
 
         await mongoose.connect(
-            process.env.MONGO_URI
+            process.env.MONGO_URI,
+            options
         );
 
         console.log(
