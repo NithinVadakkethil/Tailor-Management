@@ -19,15 +19,7 @@ const startServer = async () => {
             )
         );
 
-        console.log(
-            chalk.rgb(255, 165, 0)(
-                "📦 Connecting to MongoDB..."
-            )
-        );
-
-        await connectDB();
-
-        app.listen(PORT, () => {
+        app.listen(PORT, "0.0.0.0", async () => {
             console.log(
                 chalk.bgBlueBright(
                     "                                                  "
@@ -70,6 +62,23 @@ const startServer = async () => {
                     "                                                  "
                 )
             );
+
+            try {
+                console.log(
+                    chalk.rgb(255, 165, 0)(
+                        "📦 Connecting to MongoDB..."
+                    )
+                );
+                await connectDB();
+            } catch (dbError) {
+                console.error(
+                    chalk.red(
+                        "❌ MongoDB Connection Failed"
+                    )
+                );
+                console.error(dbError);
+                process.exit(1);
+            }
         });
     } catch (error) {
         console.error(
