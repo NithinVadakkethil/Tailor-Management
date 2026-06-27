@@ -1,0 +1,9 @@
+{
+  "ignore_dirs": [
+    "backend",
+    ".git",
+    ".github",
+    "client/android",
+    "client/ios"
+  ]
+}
